@@ -1,0 +1,32 @@
+function calculateScore() {
+    // Define correct answers
+    const correctAnswers = {
+        q1: "Charles Babbage",
+        q2: "Canberra",
+        q3: "Au",
+        q4: "Jane Austen",
+        q5: "Jupiter",
+        q6: "Leonardo da Vinci",
+        q7: "Diamond",
+        q8: "Alexander Fleming",
+        q9: "299,792 km/s",
+        q10: "Nitrogen"
+    };
+
+    let score = 0;
+    const form = document.getElementById('quiz-form');
+    const resultsDisplay = document.getElementById('score-display');
+
+    // Check each question's answer
+    for (const question in correctAnswers) {
+        const userAnswer = form[question]?.value;
+        if (userAnswer === correctAnswers[question]) {
+            score++;
+        }
+    }
+
+    // Display the score
+    const totalQuestions = Object.keys(correctAnswers).length;
+    resultsDisplay.textContent = `You scored ${score} out of ${totalQuestions}!`;
+    return false; // Prevent form submission
+}

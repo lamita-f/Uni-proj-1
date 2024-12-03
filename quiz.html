@@ -1,32 +1,118 @@
-function calculateScore() {
-    // Define correct answers
-    const correctAnswers = {
-        q1: "Charles Babbage",
-        q2: "Canberra",
-        q3: "Au",
-        q4: "Jane Austen",
-        q5: "Jupiter",
-        q6: "Leonardo da Vinci",
-        q7: "Diamond",
-        q8: "Alexander Fleming",
-        q9: "299,792 km/s",
-        q10: "Nitrogen"
-    };
-
-    let score = 0;
-    const form = document.getElementById('quiz-form');
-    const resultsDisplay = document.getElementById('score-display');
-
-    // Check each question's answer
-    for (const question in correctAnswers) {
-        const userAnswer = form[question]?.value;
-        if (userAnswer === correctAnswers[question]) {
-            score++;
-        }
-    }
-
-    // Display the score
-    const totalQuestions = Object.keys(correctAnswers).length;
-    resultsDisplay.textContent = `You scored ${score} out of ${totalQuestions}!`;
-    return false; // Prevent form submission
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Quiz</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Web Development Quiz</h1>
+        <div id="timer" class="timer hidden"></div>
+        <div id="user-info">
+            <label for="name">Enter Your Name:</label>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <label for="id">Enter Your ID:</label>
+            <input type="text" id="id" placeholder="Your ID" required>
+            <button class="btn" onclick="startQuiz()">Start Quiz</button>
+        </div>
+        <form id="quiz-form" class="hidden">
+            <div class="question hidden" id="question-0">
+                1. What does HTML stand for?
+                <div class="options">
+                    <label><input type="radio" name="q1" value="A"> Hyperlinks and Text Markup Language</label>
+                    <label><input type="radio" name="q1" value="B"> Hyper Text Markup Language</label>
+                    <label><input type="radio" name="q1" value="C"> Home Tool Markup Language</label>
+                    <label><input type="radio" name="q1" value="D"> Hyperlink Text Mark Language</label>
+                </div>
+            </div>
+            <div class="question hidden" id="question-1">
+                2. Which property is used to change the background color in CSS?
+                <div class="options">
+                    <label><input type="radio" name="q2" value="A"> background-color</label>
+                    <label><input type="radio" name="q2" value="B"> bg-color</label>
+                    <label><input type="radio" name="q2" value="C"> color-background</label>
+                    <label><input type="radio" name="q2" value="D"> background</label>
+                </div>
+            </div>
+            <div class="question hidden" id="question-2">
+                3. What does CSS stand for?
+                <div class="options">
+                    <label><input type="radio" name="q3" value="A"> Creative Style Sheets</label>
+                    <label><input type="radio" name="q3" value="B"> Cascading Style Sheets</label>
+                    <label><input type="radio" name="q3" value="C"> Colorful Style Sheets</label>
+                    <label><input type="radio" name="q3" value="D"> Computer Style Sheets</label>
+                </div>
+            </div>
+            <div class="question hidden" id="question-3">
+                4. Which HTML element is used to specify a header for a document?
+                <div class="options">
+                    <label><input type="radio" name="q4" value="A"> &lt;head&gt;</label>
+                    <label><input type="radio" name="q4" value="B"> &lt;header&gt;</label>
+                    <label><input type="radio" name="q4" value="C"> &lt;heading&gt;</label>
+                    <label><input type="radio" name="q4" value="D"> &lt;h1&gt;</label>
+                </div>
+            </div>
+            <div class="question hidden" id="question-4">
+                5. What is the correct syntax for adding comments in HTML?
+                <div class="options">
+                    <label><input type="radio" name="q5" value="A"> &lt;!-- Comment --&gt;</label>
+                    <label><input type="radio" name="q5" value="B"> // Comment</label>
+                    <label><input type="radio" name="q5" value="C"> /* Comment */</label>
+                    <label><input type="radio" name="q5" value="D"> # Comment</label>
+                </div>
+            </div>
+            <div class="question hidden" id="question-5">
+                6. In Java, which keyword is used to define a class?
+                <div class="options">
+                    <label><input type="radio" name="q6" value="A"> object</label>
+                    <label><input type="radio" name="q6" value="B"> class</label>
+                    <label><input type="radio" name="q6" value="C"> define</label>
+                    <label><input type="radio" name="q6" value="D"> method</label>
+                </div>
+            </div>
+            <div class="question hidden" id="question-6">
+                7. Which Java method is used to print output to the console?
+                <div class="options">
+                    <label><input type="radio" name="q7" value="A"> print.console()</label>
+                    <label><input type="radio" name="q7" value="B"> println()</label>
+                    <label><input type="radio" name="q7" value="C"> System.out.println()</label>
+                    <label><input type="radio" name="q7" value="D"> console.print()</label>
+                </div>
+            </div>
+            <div class="question hidden" id="question-7">
+                8. Which tag is used to create a hyperlink in HTML?
+                <div class="options">
+                    <label><input type="radio" name="q8" value="A"> &lt;link&gt;</label>
+                    <label><input type="radio" name="q8" value="B"> &lt;a&gt;</label>
+                    <label><input type="radio" name="q8" value="C"> &lt;hyperlink&gt;</label>
+                    <label><input type="radio" name="q8" value="D"> &lt;href&gt;</label>
+                </div>
+            </div>
+            <div class="question hidden" id="question-8">
+                9. Which of the following is used to add JavaScript to a webpage?
+                <div class="options">
+                    <label><input type="radio" name="q9" value="A"> &lt;js&gt;</label>
+                    <label><input type="radio" name="q9" value="B"> &lt;script&gt;</label>
+                    <label><input type="radio" name="q9" value="C"> &lt;javascript&gt;</label>
+                    <label><input type="radio" name="q9" value="D"> &lt;code&gt;</label>
+                </div>
+            </div>
+            <div class="question hidden" id="question-9">
+                10. In Java, how do you define a method?
+                <div class="options">
+                    <label><input type="radio" name="q10" value="A"> method myMethod()</label>
+                    <label><input type="radio" name="q10" value="B"> myMethod()</label>
+                    <label><input type="radio" name="q10" value="C"> void myMethod()</label>
+                    <label><input type="radio" name="q10" value="D"> def myMethod()</label>
+                </div>
+            </div>
+            <button type="button" class="btn" id="next-button" onclick="nextQuestion()">Next</button>
+            <button type="button" class="btn hidden" onclick="gradeQuiz()">Submit</button>
+        </form>
+        <div id="result" class="result hidden"></div>
+    </div>
+   <script src="script.js"></script>
+</body>
+</html>

@@ -1,13 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link your external CSS -->
-    <script>
+
+        let currentQuestionIndex = 0;
+        const totalQuestions = 10;
+        let timerInterval;
+        const answers = {
+            q1: "B",
+            q2: "A",
+            q3: "B",
+            q4: "B",
+            q5: "A",
+            q6: "B",
+            q7: "C",
+            q8: "B",
+            q9: "B",
+            q10: "C"
+        };
+
+        function startQuiz() {
+            const name = document.getElementById("name").value;
+            const id = document.getElementById("id").value;
+            if (!name || !id) {
+                alert("Please enter your name and ID.");
+                return;
+            }
+            document.getElementById("user-info").classList.add("hidden");
+            document.getElementById("quiz-form").classList.remove("hidden");
+            document.getElementById("timer").classList.remove("hidden");
+            showQuestion();
+            startTimer(120);
+        }
+
+        function startTimer(duration) {
+            const timer = document.getElementById("timer");
+            let timeRemaining = duration;
+            timerInterval = setInterval(() => {
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                timer.textContent = `Time Left: ${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    gradeQuiz();
+                }
+                timeRemaining--;
+            }, 1000);
+        }
+
+        function showQuestion() {
+            const allQuestions = document.querySelectorAll(".question");
+            allQuestions.forEach(q => q.classList.add("hidden"));
+            document.getElementById(`question-${currentQuestionIndex}`).classList.remove("hidden");
+            const nextButton = document.getElementById("next-button");
+            const submitButton = document.querySelector('button[onclick="gradeQuiz()"]');
+            if (currentQuestionIndex === totalQuestions - 1) {
+                nextButton.classList.add("hidden");
+                submitButton.classList.remove("hidden");
+            } else {
+                nextButton.classList.remove("hidden");
+                submitButton.classList.add("hidden");
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            showQuestion();
+        }
+
+        function gradeQuiz() {
+            clearInterval(timerInterval);
+            const form = document.getElementById("quiz-form");
+            const formData = new FormData(form);
+            let score = 0;
+            for (const [key, value] of formData.entries()) {
+                if (answers[key] === value) score++;
+            }
+            const name = document.getElementById("name").value;
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `<p>${name}, you scored ${score} out of ${totalQuestions}!</p>`;
+            resultDiv.classList.remove("hidden");
+            document.getElementById("quiz-form").classList.add("hidden");
+            document.getElementById("timer").classList.add("hidden");
+        }
         // JavaScript for form validation
-        function validateForm() {
+       /* function validateForm() {
             // Get form elements
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
@@ -107,6 +180,5 @@
             <!-- Submit Button -->
             <button type="submit">Send Message</button>
         </form>
-    </div>
-</body>
-</html>
+    </div>*/
+

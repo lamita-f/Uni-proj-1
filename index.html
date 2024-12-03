@@ -3,70 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Web Page</title>
-    <style>
-        /* Reset and basic styling */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-            background: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 28px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 30px;
-        }
-        .nav-links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .nav-links a {
-            display: inline-block;
-            text-decoration: none;
-            font-size: 18px;
-            color: #fff;
-            background-color: #6b4f72;
-            padding: 12px 20px;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
-        .nav-links a:hover {
-            background-color: #59406D;
-        }
-    </style>
+    <title>My Homepage</title>
+	<link rel="stylesheet" href="mystyle.css">
+    
 </head>
-<body>
+<body class="in-page">
+    <nav>
+        <ul>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
-        <h1>Welcome to My Web Page</h1>
-        <p>Explore the links below to view my CV and weekly course schedule.</p>
-        
-        <div class="nav-links">
-            <a href="cv2.html">View My CV</a>
-            <a href="schedule.html">View My Weekly Course Schedule</a>
+        <h1>Welcome to My Homepage</h1>
+        <div class="links">
+            <a href="CVL.html"><i class="fas fa-file-alt"></i> My CV</a>
+            <a href="schedule.html"><i class="fas fa-calendar-alt"></i> Weekly Schedule</a>
+            <a href="quiz.html"><i class="fas fa-question-circle"></i> Take a Quiz</a>
         </div>
     </div>
+
+    <footer id="contact">
+        <p><a href="mailto:lamita.a.fakhry@net.usek.edu.lb">lamita.a.fakhry@net.usek.edu.lb |
+		Phone: +960 70 563 008</p>
+    </footer>
+
+   
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

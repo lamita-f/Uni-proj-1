@@ -1,0 +1,78 @@
+body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            
+        }
+        .schedule-container {
+            max-width: 800px;
+            width: 100%;
+        }
+       .schedule-container h1 {
+            text-align: center;
+            color: orange;
+            margin-bottom: 20px;
+        }
+       .schedule-container table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .schedule-container th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+       .schedule-container th {
+            background-color:orange;
+            color: black;
+        }
+        .schedule-container td {
+            background-color: white;
+            color: black;
+        }
+        .course {
+            font-weight: bold;
+            color: #30949D;
+        }
+        .time {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .empty {
+            background-color: #e4e4e4;
+        }
+		
+	  @media screen and (max-width: 768px) {
+   
+          table, thead, tbody, th, td, tr {
+          display: block;
+        }
+
+    
+   
+        tr {
+          margin-bottom: 20px;
+          padding: 10px;
+          background-color: #f9f9fb;
+        }
+
+       td {
+          position: relative;
+          padding-left: 50%;
+          text-align: left;
+        }
+
+   
+       td:before {
+         content: attr(data-label);
+         position: absolute;
+         left: 10px;
+         top: 10px;
+         font-weight: bold;
+         text-transform: uppercase;
+         color: #333;
+        }
+	   }
+
+		

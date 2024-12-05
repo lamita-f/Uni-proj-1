@@ -1,36 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Homepage</title>
-	<link rel="stylesheet" href="mystyle.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>homepage</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
 </head>
-<body>
-   <nav>
-        <div class="nav-container">
-            <div class="logo">Lamita fakhry 202301607</div>
-            <ul>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+<body  background="OIP (17).jpg">
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Welcome to My Homepage</h1>
-            <p>Explore my work and stay connected</p>
-            <div class="hero-links">
-                <a href="CVL.html"><i class="fas fa-file-alt"></i> My CV</a>
-                <a href="schedule.html"><i class="fas fa-calendar-alt"></i> Weekly Schedule</a>
-                <a href="quiz.html"><i class="fas fa-question-circle"></i> Take a Quiz</a>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">lamita</h2>
             </div>
-        </div>
-    </header>
 
-    <footer>
-        <p>Contact me: <a href="mailto:lamita.a.fakhry@net.usek.edu.lb">lamita.a.fakhry@net.usek.edu.lb</a> | Phone: +961 70 563 008</p>
-    </footer>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">SERVICE</a></li>
+                    <li><a href="cont.html">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type To text">
+                <a href="https://www.google.com/search?keywords=My+Search+Parameters" target="_blank"> <button class="btn">Search</button></a>
+            </div>
+
+        </div> 
+        <div class="content">
+            <h1>Welcome <br><span>to my</span> <br>homepage</h1>
+			<br> <br>
+
+                <button class="cn"><a href="newcv.html"> My cv</a></button>
+				<button class="cn"><a href="schedule.html">My schedule</a></button>
+				<button class="cn"><a href="quiz.html">take a quiz</a></button>
+
+                <div class="form">
+                    <h2>Login Here</h2>
+                    <input type="email" name="email" placeholder="Enter Email Here">
+                    <input type="password" name="" placeholder="Enter Password Here">
+                    <button class="btnn"><a href="#">Login</a></button>
+
+                    <p class="link">Don't have an account<br>
+                    <a href="signup.html">Sign up </a> here</a></p>
+                    <p class="#">Log in with</p>
+
+                    <div class="icons">
+                        <a href="https://www.facebook.com/" target=_blank><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="https://www.instagram.com/" target=_blank><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="https://www.twitter.com/" target=_blank><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="https://myaccount.google.com/?utm_source=sign_in_no_continue&pli=1" target=_blank><ion-icon name="logo-google"></ion-icon></a>
+                        <a href="https://www.skype.com/" target=_blank><ion-icon name="logo-skype"></ion-icon></a>
+                    </div>
+
+                </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+   <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </body>
 </html>
